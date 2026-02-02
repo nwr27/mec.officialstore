@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MEC Official Store | Parts, Repair, Custom Assembly</title>
+  <meta name="description" content="Penjualan part Official Storea, perbaikan alat, dan jasa custom assembly. Order cepat via WhatsApp." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Beranda">
+        <div class="logo-badge logo-img">
+          <img src="assets/mec22.png" alt="MEC Official Store Logo" />
+        </div>
+
+        <div class="brand-text">
+          <div class="brand-name">MEC Official Store</div>
+          <div class="brand-tag">Parts • Repair • Custom Assembly</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="#products">Produk</a>
+        <a href="#services">Jasa</a>
+        <a href="#how">Cara Order</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="cartBtn" class="btn btn-ghost" type="button" aria-haspopup="dialog">
+          <span class="icon">🛒</span>
+          <span>Keranjang</span>
+          <span id="cartCount" class="pill">0</span>
+        </button>
+        <a id="waHeader" class="btn btn-primary" href="#" target="_blank" rel="noopener">Chat WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="chip">Ready stock, fast response</div>
+          <h1>
+            Parts, servis, dan custom assembly cepat di
+            <span class="hero-accent">M</span>ajalengka
+            <span class="hero-accent">E</span>mbedded
+            <span class="hero-accent">C</span>enter
+          </h1>
+<p>
+            Cocok untuk sekolah, hobi, dan kebutuhan industri.
+            Katalog produk di bawah selalu update. Order langsung via WhatsApp.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#products">Lihat Produk</a>
+            <a class="btn btn-ghost" href="#services">Lihat Jasa</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <div class="hero-card-title">Request cepat</div>
+            <div class="hero-card-sub">Kirim kebutuhan Anda, kami bantu carikan solusinya.</div>
+          </div>
+
+          <form id="quickForm" class="form">
+            <label>
+              <span>Nama</span>
+              <input id="qName" type="text" placeholder="Nama Anda" autocomplete="name" />
+            </label>
+            <label>
+              <span>Kebutuhan</span>
+              <select id="qNeed">
+                <option value="Beli Part">Beli Part</option>
+                <option value="Servis/Perbaikan">Servis/Perbaikan</option>
+                <option value="Custom Assembly">Custom Assembly</option>
+              </select>
+            </label>
+            <label>
+              <span>Deskripsi singkat</span>
+              <textarea id="qMsg" rows="4" placeholder="Contoh: butuh ESP32 5 pcs, atau alat tidak mau nyala, atau minta rakit kabel harness..."></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Kirim ke WhatsApp</button>
+            <div class="form-hint">Tidak perlu login, langsung chat.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Produk</h2>
+            <p class="muted">Search, filter, lalu order. Data diambil dari Google Sheets.</p>
+          </div>
+
+          <div class="controls">
+            <div class="search">
+              <span class="icon">🔎</span>
+              <input id="searchInput" type="search" placeholder="Cari: ESP32, adaptor, solder, sensor..." />
+            </div>
+
+            <select id="categorySelect" class="select" aria-label="Filter kategori">
+              <option value="ALL">Semua kategori</option>
+            </select>
+
+            <select id="sortSelect" class="select" aria-label="Urutkan">
+              <option value="featured">Unggulan</option>
+              <option value="price_asc">Harga: rendah ke tinggi</option>
+              <option value="price_desc">Harga: tinggi ke rendah</option>
+              <option value="name_asc">Nama: A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="statusBar" class="statusbar hidden"></div>
+
+        <div id="productGrid" class="grid"></div>
+
+        <div class="section-foot">
+          <div class="muted small">
+            Tips: stok dan harga bisa Anda update dari Google Sheets kapan saja.
+          </div>
+          <a id="waCatalog" class="btn btn-ghost" href="#" target="_blank" rel="noopener">Tanya stok via WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Jasa</h2>
+            <p class="muted">Fokus: perbaikan alat elektronika dan custom assembly.</p>
+          </div>
+        </div>
+
+        <div class="service-grid">
+          <article class="card">
+            <div class="card-top">
+              <div class="badge">Repair</div>
+              <h3>Perbaikan alat elektronika</h3>
+              <p class="muted">Diagnosa, penggantian komponen, rework solder, dan perbaikan jalur.</p>
+            </div>
+            <ul class="list">
+              <li>Estimasi biaya setelah cek</li>
+              <li>Komponen diganti sesuai kebutuhan</li>
+              <li>Catatan hasil pengerjaan</li>
+            </ul>
+            <a class="btn btn-primary" id="waRepair" href="#" target="_blank" rel="noopener">Konsultasi Repair</a>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <div class="badge">Parts</div>
+              <h3>Penjualan part</h3>
+              <p class="muted">Komponen embedded, kelistrikan ringan, tools teknisi, dan kebutuhan proyek.</p>
+            </div>
+            <ul class="list">
+              <li>Rapi, jelas SKU dan spesifikasi</li>
+              <li>Bisa bantu rekomendasi kompatibilitas</li>
+              <li>Order cepat via WhatsApp</li>
+            </ul>
+            <a class="btn btn-primary" id="waParts" href="#" target="_blank" rel="noopener">Tanya Part</a>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <div class="badge">Custom</div>
+              <h3>Custom assembly</h3>
+              <p class="muted">Rakit kabel, harness, panel kecil, solder assembly sederhana sesuai spesifikasi.</p>
+            </div>
+            <ul class="list">
+              <li>Diskusi kebutuhan dan gambar kerja</li>
+              <li>Produksi kecil sampai menengah</li>
+              <li>QC dasar dan labeling</li>
+            </ul>
+            <a class="btn btn-primary" id="waCustom" href="#" target="_blank" rel="noopener">Request Assembly</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Cara order</h2>
+            <p class="muted">Dibuat sederhana, seperti toko yang praktis dipakai harian.</p>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <div class="step-title">Pilih produk</div>
+              <div class="muted">Cari dan filter, klik detail kalau perlu.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <div class="step-title">Masukkan keranjang</div>
+              <div class="muted">Keranjang tersimpan di browser.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <div class="step-title">Checkout via WhatsApp</div>
+              <div class="muted">Pesan otomatis rapi, tinggal kirim.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Apakah stok benar-benar real-time?</summary>
+            <p>Stok mengikuti update yang Anda lakukan di Google Sheets. Untuk kepastian, pelanggan bisa chat WhatsApp.</p>
+          </details>
+          <details>
+            <summary>Bisa pakai pembayaran online?</summary>
+            <p>Bisa, tapi itu butuh sistem pembayaran terpisah. Template ini fokus pada order cepat via WhatsApp.</p>
+          </details>
+          <details>
+            <summary>Apakah bisa pengiriman same day?</summary>
+            <p>Untuk Warga majalengka bisa dilakukan pengiriman same day. Konsultasikan via WhatsApp</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <h2>Kontak</h2>
+            <p class="muted"></p>
+            <div class="contact-row">
+              <div class="contact-item">
+                <div class="contact-label">Jam</div>
+                <div class="contact-val">Setiap Hari, 06.00-20.00 WIB</div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-label">Layanan</div>
+                <div class="contact-val">Parts, Repair, Custom Assembly</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-actions">
+            <a id="waContact" class="btn btn-primary" href="#" target="_blank" rel="noopener">Chat WhatsApp</a>
+            <a class="btn btn-ghost" href="#products">Lihat Produk</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="muted small">© <span id="year"></span> MEC Official Store. All rights reserved.</div>
+      <div class="muted small">Dibuat dengan GitHub Pages.</div>
+    </div>
+  </footer>
+
+  <!-- Product Detail Modal -->
+  <dialog id="productModal" class="modal">
+    <div class="modal-head">
+      <div class="modal-title" id="modalTitle">Detail Produk</div>
+      <button id="modalClose" class="btn btn-ghost" type="button">Tutup</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-media">
+        <img id="modalImg" alt="Gambar produk" />
+      </div>
+      <div class="modal-info">
+        <div class="meta">
+          <div class="pill" id="modalCat"></div>
+          <div class="pill" id="modalSku"></div>
+        </div>
+        <div class="price" id="modalPrice"></div>
+        <div class="muted" id="modalShort"></div>
+        <div class="specs" id="modalSpecs"></div>
+
+        <div class="modal-actions">
+          <button id="modalAdd" class="btn btn-primary" type="button">Tambah ke Keranjang</button>
+          <a id="modalWA" class="btn btn-ghost" href="#" target="_blank" rel="noopener">Order via WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Cart Drawer -->
+  <dialog id="cartDrawer" class="drawer">
+    <div class="drawer-head">
+      <div class="drawer-title">Keranjang</div>
+      <button id="cartClose" class="btn btn-ghost" type="button">Tutup</button>
+    </div>
+    <div class="drawer-body">
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-summary">
+        <div class="sum-row">
+          <span>Total</span>
+          <strong id="cartTotal">Rp 0</strong>
+        </div>
+        <div class="sum-actions">
+          <button id="cartClear" class="btn btn-ghost" type="button">Kosongkan</button>
+          <a id="cartCheckout" class="btn btn-primary" href="#" target="_blank" rel="noopener">Checkout WhatsApp</a>
+        </div>
+        <div class="muted small">Harga final bisa dikonfirmasi saat chat.</div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
