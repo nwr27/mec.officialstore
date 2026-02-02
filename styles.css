@@ -468,3 +468,113 @@ details p{color:var(--muted); margin:10px 0 0; line-height:1.55}
   background: #fff;
   /* opsional, aman kalau logo PNG transparan */
 }
+
+/* =========================
+   HEADER RESPONSIVE FIX
+========================= */
+
+/* biar flex item bisa mengecil */
+.brand,
+.brand-text,
+.header-actions {
+  min-width: 0;
+}
+
+/* rapikan text brand supaya tidak maksa */
+.brand-name,
+.brand-tag {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* tombol header tidak kepanjangan */
+.header-actions .btn {
+  white-space: nowrap;
+}
+
+/* Tablet: rapikan spacing */
+@media (max-width: 980px) {
+  .header-inner {
+    padding: 12px 0;
+    gap: 10px;
+  }
+
+  .brand-name {
+    font-size: 14px;
+  }
+
+  .brand-tag {
+    font-size: 11px;
+  }
+}
+
+/* HP: header jadi 2 kolom rapi, WA tombol jadi lebih ringkas */
+@media (max-width: 520px) {
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Brand jangan terlalu panjang */
+  .brand {
+    gap: 10px;
+  }
+
+  .logo-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .logo-badge.logo-img img {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  /* Truncate teks brand supaya tidak mendorong tombol */
+  .brand-text {
+    max-width: 46vw;
+    /* batas aman di hp */
+  }
+
+  .brand-name {
+    font-size: 13px;
+  }
+
+  .brand-tag {
+    display: none;
+    /* optional: hilangkan tag line di hp biar ringkas */
+  }
+
+  /* tombol header lebih hemat tempat */
+  #cartBtn span:not(.icon):not(.pill) {
+    display: none;
+    /* sembunyikan teks "Keranjang", sisakan icon + badge */
+  }
+
+  /* WhatsApp jadi icon-only biar tidak memanjang */
+  #waHeader {
+    padding: 10px 10px;
+  }
+
+  #waHeader::before {
+    content: "💬";
+    margin-right: 0;
+  }
+
+  #waHeader {
+    font-size: 0;
+    /* sembunyikan teks */
+    line-height: 0;
+  }
+
+  #waHeader::before {
+    font-size: 16px;
+    /* munculkan icon */
+    line-height: 1;
+  }
+}
