@@ -253,12 +253,17 @@ textarea{resize:vertical}
   border-bottom:1px solid var(--line);
   display:grid;
   place-items:center;
+  padding: 10px;
+  overflow: hidden;
 }
-.product img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
+.product img {
+  width: auto;
+  height: auto;
+  max-width: 92%;
+  max-height: 92%;
+  object-fit: contain;
+  display: block;
+
   filter: grayscale(100%) contrast(1.05) brightness(0.95);
   transition: filter .25s ease;
 }
