@@ -115,6 +115,18 @@ a{color:inherit; text-decoration:none}
       transparent,
       rgba(11, 15, 23, .65));
 }
+/* Pastikan pseudo-element tidak menghalangi klik */
+.hero::after,
+.section-alt::before {
+  pointer-events: none;
+}
+details[open] p {
+  margin-top: 10px;
+}
+
+details p {
+  display: block;
+}
 .hero-grid{
   display:grid;
   grid-template-columns: 1.25fr .9fr;
@@ -263,13 +275,28 @@ textarea{resize:vertical}
   max-height: 92%;
   object-fit: contain;
   display: block;
-
-  filter: grayscale(100%) contrast(1.05) brightness(0.95);
   transition: filter .25s ease;
 }
 
 .product:hover img {
   filter: grayscale(0%);
+}
+.product.is-placeholder img {
+  filter: grayscale(100%) contrast(1.05) brightness(0.95);
+}
+@media (hover: hover) and (pointer: fine) {
+  .product.is-placeholder:hover img {
+    filter: grayscale(0%);
+  }
+}
+@media (hover: none) {
+  .product img {
+    filter: none;
+  }
+
+  .product.is-placeholder img {
+    filter: grayscale(100%) contrast(1.05) brightness(0.95);
+  }
 }
 .product .pbody{padding:12px}
 .badges{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px}

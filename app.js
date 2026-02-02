@@ -80,12 +80,20 @@ async function fetchProducts() {
     const category = String(get(map.category) || "Parts").trim();
     const price = Number(get(map.price) || 0);
     const stock = Number(get(map.stock) || 0);
-    const image = String(get(map.image)).trim() || CONFIG.placeholderImg;
+    const rawImage = String(get(map.image)).trim();
+    const image = rawImage || CONFIG.placeholderImg;
+    const isPlaceholder = !rawImage;
+
     const short = String(get(map.short)).trim();
     const specs = String(get(map.specs)).trim();
     const featured = parseBool(get(map.featured));
 
-    return { sku, name, category, price, stock, image, short, specs, featured };
+    return {
+  sku, name, category, price, stock,
+  image, short, specs, featured,
+  isPlaceholder
+};
+
   }).filter(Boolean);
 
   return products;
@@ -261,7 +269,9 @@ function productCard(p) {
   const featuredBadge = p.featured ? `<span class="badge">Unggulan</span>` : "";
 
   return `
-    <article class="card product" data-sku="${esc(p.sku)}">
+    <article class="card product ${p.isPlaceholder ? "is-placeholder" : "has-image"}"
+         data-sku="${esc(p.sku)}">
+
       <div class="imgwrap">
         <img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" />
       </div>
